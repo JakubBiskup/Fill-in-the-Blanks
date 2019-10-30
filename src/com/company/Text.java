@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Text {
     List<String> textInListOfLines;
-    LinkedList<String> answers=new LinkedList();;
+    LinkedList<String> answers=new LinkedList();
 
     Text(String fileName) throws Exception{
         textInListOfLines= Files.readAllLines(Paths.get(fileName));
