@@ -1,17 +1,13 @@
 package com.company;
 
-import java.io.File;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Text {
     List<String> textInListOfLines;
     LinkedList<String> answers=new LinkedList();
+    List<String> textInLinesWithBlanks= new ArrayList<String>();
 
     Text(String fileName) throws Exception{
         textInListOfLines= Files.readAllLines(Paths.get(fileName));
@@ -21,15 +17,14 @@ public class Text {
             String [] splitLine =line.split(" ");
             int randomIndex=(int) (Math.random()*splitLine.length);
             answers.add(splitLine[randomIndex]);
-            textInListOfLines.set(listIndex, line.replaceAll("\\b"+splitLine[randomIndex]+"\\b", "___"+(listIndex+1)+"___"));
+            splitLine[randomIndex]="___"+ (listIndex + 1) +"___";
+            String joinedLine = "";
+            for (int i=0;i<splitLine.length;i++) {
+                joinedLine = joinedLine + splitLine[i] + " ";
+            }
+            textInLinesWithBlanks.add(joinedLine);
             listIndex++;
-
-
-
         }
-
-
-        }
-
     }
+}
 
