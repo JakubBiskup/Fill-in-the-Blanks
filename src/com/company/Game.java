@@ -23,13 +23,18 @@ public class Game {
         }else {
             lineIndex=0;
         }
-while(blank<=text.answers.size()){
+        while(blank<=text.answers.size()){
                 if (lives<=0){
                     System.out.println("no more guesses. GAME OVER");
                     System.exit(0);
                 }
                 if(settings.isGoingLineByLine){
-                    System.out.println(currentTextInLines.get(lineIndex));
+                    System.out.println(currentTextInLines.get(lineIndex));}
+                else {
+                    for (String line:
+                            currentTextInLines)
+                        System.out.println(line);
+                }
                     System.out.println("What is ___"+blank+"___?");
                     System.out.println("Guesses left: "+lives);
                     String guess=inputScanner.next();
@@ -44,17 +49,12 @@ while(blank<=text.answers.size()){
                         lives--;
                     }
 
-                }else {
-                    for (String line:
-                         currentTextInLines)
-                        System.out.println(line);
 
-
-
-                }
 
 
             }
+        System.out.println("Congratulations, you got all of it right!");
+        System.exit(0);
         }
     }
-}
+
