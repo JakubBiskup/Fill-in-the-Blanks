@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Settings {
     boolean isPrepped;
-    boolean isReplacingOneOccurence;
     boolean isGoingLineByLine;
     boolean isRenewingLives;
     int livesAtStart;
