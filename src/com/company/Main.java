@@ -22,5 +22,7 @@ public class Main {
 
             System.out.println(ans);
         }
+        System.out.println(Text.fillTheBlank(chosenText.textInLinesWithBlanks,chosenText.answers,"pain").get(0));
+        Game game=new Game(settings);
     }
 }

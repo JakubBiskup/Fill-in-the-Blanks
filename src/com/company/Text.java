@@ -8,6 +8,15 @@ public class Text {
     List<String> textInListOfLines;
     LinkedList<String> answers = new LinkedList();
     List<String> textInLinesWithBlanks = new ArrayList<String>();
+    public static List<String> fillTheBlank(List<String> textToFillBlank, LinkedList<String> anss, String ans){
+        List<String> textWithABlankFilled= new ArrayList<>();
+        for (String line:
+             textToFillBlank) {
+            String newLine=line.replaceAll("___"+anss.indexOf(ans)+"___", ans);
+            textWithABlankFilled.add(newLine);
+        }
+        return textWithABlankFilled;
+    }
 
     Text(String fileName, Settings settings) throws Exception {
         if (settings.isPrepped) {
