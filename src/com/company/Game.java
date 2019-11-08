@@ -17,13 +17,13 @@ public class Game {
         System.out.println("Please choose a file by typing in its name");
         text= new Text(inScan.nextLine()+".txt",settings);
         currentTextInLines=text.textInLinesWithBlanks;
-        blank=1;
         if(settings.isPrepped){
-            lineIndex=2;
+            blank=1;
         }else {
-            lineIndex=0;
+            blank=0;
         }
-        while(blank<=text.answers.size()){
+        lineIndex=0;
+        while(blank<text.answers.size()){
                 if (lives<=0){
                     System.out.println("no more guesses. GAME OVER");
                     System.exit(0);
@@ -35,11 +35,15 @@ public class Game {
                             currentTextInLines)
                         System.out.println(line);
                 }
-                    System.out.println("What is ___"+blank+"___?");
+                    if(settings.isPrepped){
+                        System.out.println("What is ___"+blank+"___?");
+                    }else {
+                        System.out.println("What is ___"+(blank+1)+"___?");
+                    }
                     System.out.println("Guesses left: "+lives);
                     String guess=inputScanner.next();
-                    if(guess.equals(text.answers.get(blank-1))){
-                        currentTextInLines=Text.fillTheBlank(currentTextInLines,text.answers,guess);
+                    if(guess.equals(text.answers.get(blank))){
+                        currentTextInLines=Text.fillTheBlank(currentTextInLines,blank,guess,settings.isPrepped);
                         lineIndex++;
                         blank++;
                         if (settings.isRenewingLives){
