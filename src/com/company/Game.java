@@ -42,7 +42,7 @@ public class Game {
                     }
                     System.out.println("Guesses left: "+lives);
                     String guess=inputScanner.next();
-                    if(guess.equals(text.answers.get(blank))){
+                    if(guess.equalsIgnoreCase(text.answers.get(blank))){
                         currentTextInLines=Text.fillTheBlank(currentTextInLines,blank,guess,settings.isPrepped);
                         lineIndex++;
                         blank++;
